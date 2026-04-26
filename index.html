@@ -4,24 +4,26 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="leaflet/leaflet.css">
+  <!-- <link rel="stylesheet" href="leaflet/leaflet.css"> -->
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <title>Кексобукинг</title>
+  <title>Кексобукінг</title>
 </head>
 <body>
   <main>
     <div class="promo">
       <h1 class="promo__title visually-hidden"> Сусідні варіанти</h1>
-      <img src="img/keksobooking.svg" alt="Keksobooking. Кексы по соседству" width="215" height="45">
+      <!-- <img src="img/keksobooking.svg" alt="Keksobooking. Кекси по-сусідству" width="215" height="45"> -->
+      <h2>Keksobooking.</h2>
+      <p>Кекси по-сусідству</p>
     </div>
 
-    <!-- Карта объявлений -->
+    <!-- Карта оголошень -->
     <section class="map">
 
-      <!-- Блок для вставки карты -->
+      <!-- Блок для карт -->
       <div class="map__canvas" id="map-canvas"></div>
 
-      <!-- Фильтрация объявлений -->
+      <!-- Фільтрація оголошень -->
       <div class="map__filters-container">
         <form action="#" class="map__filters" autocomplete="off">
           <select name="housing-type" id="housing-type" class="map__filter">
@@ -32,13 +34,13 @@
             <option value="bungalow">Бунгало</option>
           </select>
           <select name="housing-price" id="housing-price" class="map__filter">
-            <option value="any" selected>Люба</option>
+            <option value="any" selected>Будь-яка</option>
             <option value="middle">10000 - 50000&#x20bd;</option>
             <option value="low">до 10000&#x20bd;</option>
             <option value="high">от 50000&#x20bd;</option>
           </select>
           <select name="housing-rooms" id="housing-rooms" class="map__filter">
-            <option value="any" selected>Любе число кімнат</option>
+            <option value="any" selected>Будь-яке число кімнат</option>
             <option value="1">Одна кімната</option>
             <option value="2">Две коімнати</option>
             <option value="3">Три кімнати</option>
@@ -53,7 +55,7 @@
             <input type="checkbox" name="features" value="wifi" id="filter-wifi" class="map__checkbox visually-hidden">
             <label class="map__feature map__feature--wifi" for="filter-wifi">Wi-Fi</label>
             <input type="checkbox" name="features" value="dishwasher" id="filter-dishwasher" class="map__checkbox visually-hidden">
-            <label class="map__feature map__feature--dishwasher" for="filter-dishwasher">Посудомиєчна машина</label>
+            <label class="map__feature map__feature--dishwasher" for="filter-dishwasher">Посудомийна машина</label>
             <input type="checkbox" name="features" value="parking" id="filter-parking" class="map__checkbox visually-hidden">
             <label class="map__feature map__feature--parking" for="filter-parking">Парковка</label>
             <input type="checkbox" name="features" value="washer" id="filter-washer" class="map__checkbox visually-hidden">
@@ -67,7 +69,7 @@
       </div>
     </section>
 
-    <!-- Форма объявления -->
+    <!-- Форма оголошень -->
     <section class="notice">
       <h2 class="notice__title">Ваше оголошення</h2>
       <form class="ad-form" method="post" enctype="multipart/form-data" autocomplete="off">
@@ -86,7 +88,7 @@
         </fieldset>
         <fieldset class="ad-form__element ad-form__element--wide">
           <label class="ad-form__label" for="title">Заголовок оголошення</label>
-          <input id="title" name="title" type="text" placeholder="Милая, уютная квартирка в центре Токио">
+          <input id="title" name="title" type="text" placeholder="Мила, затишна квартирка в центрі Токіо">
         </fieldset>
         <fieldset class="ad-form__element ad-form__element--wide">
           <label class="ad-form__label" for="address">Адреса (координати)</label>
@@ -102,7 +104,7 @@
           </select>
         </fieldset>
         <fieldset class="ad-form__element">
-          <label class="ad-form__label" for="price">Цена за ніч, грн.</label>
+          <label class="ad-form__label" for="price">Ціна за ніч, грн.</label>
           <input id="price" name="price" type="number" placeholder="5000">
         </fieldset>
         <fieldset class="ad-form__element ad-form__element--time">
@@ -119,7 +121,7 @@
           </select>
         </fieldset>
         <fieldset class="ad-form__element">
-          <label class="ad-form__label" for="room_number">Количество комнат</label>
+          <label class="ad-form__label" for="room_number">Кількість кімнат</label>
           <select id="room_number" name="rooms">
             <option value="1" selected>1 кімната</option>
             <option value="2">2 кімнати</option>
@@ -152,7 +154,7 @@
           <label class="feature feature--conditioner" for="feature-conditioner">Кондиціонер</label>
         </fieldset>
         <fieldset class="ad-form__element ad-form__element--wide">
-          <label class="ad-form__label" for="description">Опіс (не обовьязково)</label>
+          <label class="ad-form__label" for="description">Опис (не обовьязково)</label>
           <textarea id="description" name="description" placeholder="Здесь расскажите о том, какое ваше жилье замечательное и вообще"></textarea>
         </fieldset>
         <fieldset class="ad-form__element ad-form__element--wide">
@@ -167,7 +169,7 @@
         </fieldset>
         <fieldset class="ad-form__element ad-form__element--submit">
           <button class="ad-form__submit" type="submit">Опублікувати</button>
-          или <button class="ad-form__reset" type="reset">очистити</button>
+          або <button class="ad-form__reset" type="reset">очистити</button>
         </fieldset>
       </form>
     </section>
@@ -215,6 +217,7 @@
       <button type="button" class="error__button">Спробувати знову</button>
     </div>
   </template>
+
   <script type="module" src="/js/main.js"></script>
 </body>
 </html>

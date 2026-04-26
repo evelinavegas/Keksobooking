@@ -1,2 +1,4 @@
 import { cardsArr } from "./cards-create.js";
-console.log(cardsArr[0])
+import { displayCards } from "./cards-display.js";
+
+displayCards(cardsArr)

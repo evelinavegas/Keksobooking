@@ -53,14 +53,14 @@ const photosArr = ['http://o0.github.io/assets/images/tokyo/hotel1.jpg', 'http:/
 
 function createCard() {
     let card ={
-        'avatar': `img/avatars/user0${ Math.floor(Math.random() * (8 - 1 + 1)) + 1}`,
+        'avatar': `img/avatars/user0${ Math.floor(Math.random() * (8 - 1 + 1)) + 1}.png`,
         'offer': {
             'title': titelsArr[Math.floor(Math.random() * titelsArr.length)],
-            'address': `X: ${(Math.random() * (X_RANGE.max - X_RANGE.min + X_RANGE.min)).toFixed(5)} Y: ${(Math.random() * (Y_RANGE.max - Y_RANGE.min + Y_RANGE.min)).toFixed(5)}`,
-            'price': `${Math.floor(Math.random() * (PRISE_RANGE.max - PRISE_RANGE.min + PRISE_RANGE.min))} $`,
+            'address': `X: ${(Math.random() * (X_RANGE.max - X_RANGE.min) + X_RANGE.min).toFixed(5)} Y: ${(Math.random() * (Y_RANGE.max - Y_RANGE.min) + Y_RANGE.min).toFixed(5)}`,
+            'price': `${Math.floor(Math.random() * (PRISE_RANGE.max - PRISE_RANGE.min) + PRISE_RANGE.min)} $`,
             'type': typesArr[Math.floor(Math.random() * typesArr.length)],
-            'rooms': `${Math.floor(Math.random() * (ROOMS_RANGE.max - ROOMS_RANGE.min + ROOMS_RANGE.min))} rooms`,
-            'guests': `${Math.floor(Math.random() * (GUESTS_RANGE.max - GUESTS_RANGE.min + GUESTS_RANGE.min))} guests`,
+            'rooms': `${Math.floor(Math.random() * (ROOMS_RANGE.max - ROOMS_RANGE.min) + ROOMS_RANGE.min)} rooms`,
+            'guests': `${Math.floor(Math.random() * (GUESTS_RANGE.max - GUESTS_RANGE.min) + GUESTS_RANGE.min)} guests`,
             'checkin': checkinsArr[Math.floor(Math.random() * checkinsArr.length)],
             'checkout': checkoutsArr[Math.floor(Math.random() * checkinsArr.length)],
             'features': createFeatures(featuresArr),

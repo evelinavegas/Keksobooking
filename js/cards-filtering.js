@@ -30,8 +30,6 @@ function priseCorecting(target){
 // 3.5. Поля «Час заїзду» та «Час виїзду» синхронізовані: при зміні значення одного поля у другому виділяється відповідне значення. 
 // Наприклад, якщо час заїзду вказано «після 14», то час виїзду дорівнюватиме «до 14» і навпаки.
 
-
-
 function selectedTime(target, arr){
     Array.from(arr.options).forEach(el => {
         el.selected = false

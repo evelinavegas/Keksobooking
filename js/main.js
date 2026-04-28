@@ -3,6 +3,7 @@ import { displayCards } from "./cards-display.js";
 import { priseCorecting, selectedTime} from "./cards-filtering.js";
 import { form } from "./create-map.js";
 
+
 displayCards(cardsArr)
 
 const housingType = document.querySelector('#type') 

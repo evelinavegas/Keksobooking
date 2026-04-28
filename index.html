@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
-  <!-- <link rel="stylesheet" href="leaflet/leaflet.css"> -->
+  <link rel="stylesheet" href="./node_modules/leaflet/dist/leaflet.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <title>Кексобукінг</title>
 </head>
@@ -21,7 +21,7 @@
     <section class="map">
 
       <!-- Блок для карт -->
-      <div class="map__canvas" id="map-canvas"></div>
+      <div class="map__canvas" id="map"></div>
 
       <!-- Фільтрація оголошень -->
       <div class="map__filters-container">
@@ -217,7 +217,7 @@
       <button type="button" class="error__button">Спробувати знову</button>
     </div>
   </template>
-
+  <script src="./node_modules/leaflet/dist/leaflet.js"></script>
   <script type="module" src="/js/main.js"></script>
 </body>
 </html>

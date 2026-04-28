@@ -1,6 +1,7 @@
 import { cardsArr } from "./cards-create.js";
 import { displayCards } from "./cards-display.js";
 import { priseCorecting, selectedTime} from "./cards-filtering.js";
+import { form } from "./create-map.js";
 
 displayCards(cardsArr)
 

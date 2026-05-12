@@ -26,6 +26,7 @@ let markerIcon = document.querySelector('.leaflet-marker-icon').style.width = '4
 marker.on('dragend', (e) =>{
     const coords = e.target.getLatLng()
     addressForm.value = `${coords.lat} ${coords.lng}`
+    
 })
 
 export { form,  mapFilters,  disabledForm, map }

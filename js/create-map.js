@@ -1,6 +1,7 @@
 const form = document.querySelector('.ad-form')
 const mapFilters = document.querySelector('.map__filters')
 const addressForm = document.querySelector('#address') 
+addressForm.readonly = true
 
 form.classList.add('ad-form-disabled')
 mapFilters.classList.add('ad-form-disabled')
@@ -21,10 +22,10 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 let marker = L.marker([35.6762, 139.6503], { draggable: true }).addTo(map);
 let markerIcon = document.querySelector('.leaflet-marker-icon').style.width = '41px'
+
 marker.on('dragend', (e) =>{
     const coords = e.target.getLatLng()
-    console.log(coords)
+    addressForm.value = `${coords.lat} ${coords.lng}`
 })
-// document.addEventListener('click', e => console.log(e.target))
 
 export { form,  mapFilters,  disabledForm, map }

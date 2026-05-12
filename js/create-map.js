@@ -1,18 +1,17 @@
-import makerPng from '../img/main-pin.svg'
+const form = document.querySelector('.ad-form')
+const mapFilters = document.querySelector('.map__filters')
+const addressForm = document.querySelector('#address') 
 
-const form = document.querySelector('.ad-form').classList.add('ad-form-disabled')
-const formAtributs=document.querySelectorAll('.ad-form fieldset')
-const mapFilters = document.querySelector('.map__filters').classList.add('ad-form-disabled')
-const filterAtributs = document.querySelectorAll('.map__filters select, fieldset')
+form.classList.add('ad-form-disabled')
+mapFilters.classList.add('ad-form-disabled')
 
-
-disabledAdd(filterAtributs)
-disabledAdd(formAtributs)
-function disabledAdd(arr){
-    arr.forEach(e=>{
-        e.disabled = true
+function disabledForm(arr1,  boolean) {
+    arr1.forEach(e => {
+        e.disabled = boolean
     })
 }
+
+// map
 
 const map = L.map('map').setView([35.6762, 139.6503], 13);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -20,10 +19,12 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
-const myIcom = L.icon({
-    iconUrl : makerPng,
-    iconSize: [40,40],
+let marker = L.marker([35.6762, 139.6503], { draggable: true }).addTo(map);
+let markerIcon = document.querySelector('.leaflet-marker-icon').style.width = '41px'
+marker.on('dragend', (e) =>{
+    const coords = e.target.getLatLng()
+    console.log(coords)
 })
-let marker = L.marker([35.6762, 139.6503], {icon: myIcom}).addTo(map);
+// document.addEventListener('click', e => console.log(e.target))
 
-export {form}
+export { form,  mapFilters,  disabledForm, map }

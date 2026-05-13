@@ -2,7 +2,7 @@ import { cardsArr } from "./cards-create.js";
 import { displayCards } from "./cards-display.js";
 import { priseCorecting, selectedTime} from "./cards-filtering.js";
 import {  form,  mapFilters,  disabledForm, map } from "./create-map.js";
-
+import { validation } from "./form-validation.js";
 
 displayCards(cardsArr)
 
@@ -42,3 +42,10 @@ map.whenReady(() => {
     }, 1000);
     
 })
+
+// validation 
+const roomCount = document.querySelector('#room_number')
+const capacity = document.querySelector('#capacity')
+
+roomCount.addEventListener('change', (e)=>  validation(capacity, roomCount, roomCount))
+capacity.addEventListener('change', (e)=>  validation(capacity, roomCount, capacity))

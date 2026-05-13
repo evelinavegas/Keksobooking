@@ -1,7 +1,8 @@
 const form = document.querySelector('.ad-form')
 const mapFilters = document.querySelector('.map__filters')
 const addressForm = document.querySelector('#address') 
-addressForm.readonly = true
+addressForm.readOnly = true
+addressForm.value = '35.6762, 139.6503'
 
 form.classList.add('ad-form-disabled')
 mapFilters.classList.add('ad-form-disabled')
@@ -25,8 +26,11 @@ let markerIcon = document.querySelector('.leaflet-marker-icon').style.width = '4
 
 marker.on('dragend', (e) =>{
     const coords = e.target.getLatLng()
-    addressForm.value = `${coords.lat} ${coords.lng}`
-    
+    addressForm.value = ''
+    const lat = coords.lat.toFixed(4)
+    const lng = coords.lng.toFixed(4)
+
+    addressForm.value = `${lat} ${lng}`
 })
 
 export { form,  mapFilters,  disabledForm, map }

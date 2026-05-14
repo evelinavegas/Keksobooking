@@ -1,4 +1,5 @@
 const submitBtn = document.querySelector('.ad-form__submit')
+const imgForm = document.querySelector('#images').accept="image/*"
 
 submitBtn.disabled = true 
 submitBtn.addEventListener('click', e=>{

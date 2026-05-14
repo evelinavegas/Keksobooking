@@ -2,7 +2,7 @@ import { cardsArr } from "./cards-create.js";
 import { displayCards } from "./cards-display.js";
 import { priseCorecting, selectedTime} from "./cards-filtering.js";
 import {  form,  mapFilters,  disabledForm, map } from "./create-map.js";
-import { roomsAndGuestvalidation, descriptionValidation, priceValidation } from "./form-validation.js";
+import {validationForm} from "./form-validation.js";
 
 displayCards(cardsArr)
 
@@ -44,17 +44,9 @@ map.whenReady(() => {
 })
 
 // validation 
-const roomCount = document.querySelector('#room_number')
-const capacity = document.querySelector('#capacity')
 const submitBtn = document.querySelector('.ad-form__submit')
 
 submitBtn.addEventListener('click', e=>{
     e.preventDefault()
-    roomsAndGuestvalidation(capacity, roomCount, roomCount)
-    roomsAndGuestvalidation(capacity, roomCount, capacity)
-    descriptionValidation()
-    priceValidation()
-    form.reportValidity()
-    form.checkValidity() === true ? alert('Form submitted'): console.log('error')
-    console.log('form')
+    validationForm()
 })

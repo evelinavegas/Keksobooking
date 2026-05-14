@@ -1,8 +1,24 @@
-import { cardsArr } from "./cards-create.js";
 import { displayCards } from "./cards-display.js";
 import { priseCorecting, selectedTime} from "./cards-filtering.js";
 import {  form,  mapFilters,  disabledForm, map } from "./create-map.js";
 import {validationForm} from "./form-validation.js";
+
+
+async function getCards(){
+    try {
+        const response = await fetch('http://localhost:8080/advertsData')
+        if(!response.ok) {
+            throw new Error('Error server', response.status)
+        }
+        const cardsArr = await response.json()
+
+        return cardsArr
+    } catch (error) {
+        console.log('error !!!', error)
+        return 
+    }
+}
+const cardsArr = await getCards()
 
 displayCards(cardsArr)
 

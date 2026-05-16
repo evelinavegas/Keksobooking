@@ -47,13 +47,15 @@ function validationForm(){
     roomsAndGuestvalidation(capacity, roomCount, capacity)
     titleValidation()
     priceValidation()
-    form.reportValidity()
-    form.checkValidity() === true ? alert('Form submitted'): 0
+    // form.reportValidity()
+    // form.checkValidity() === true ? alert('Form submitted'): 0
 }
 
 form.addEventListener('click', (e)=>{
-    const target = e.target
-    target.setCustomValidity('')
+    roomCount.setCustomValidity('')
+    capacity.setCustomValidity('')
+    priceForm.setCustomValidity('')
+    titleForm.setCustomValidity('')
 })
+
 export{validationForm}
-// export{roomsAndGuestvalidation, titleValidation, priceValidation}

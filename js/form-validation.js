@@ -47,8 +47,6 @@ function validationForm(){
     roomsAndGuestvalidation(capacity, roomCount, capacity)
     titleValidation()
     priceValidation()
-    // form.reportValidity()
-    // form.checkValidity() === true ? alert('Form submitted'): 0
 }
 
 form.addEventListener('click', (e)=>{

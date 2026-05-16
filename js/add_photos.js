@@ -13,6 +13,7 @@ avatar.addEventListener('change', (e)=>{
     let url = addPrewue(file)
     avatarPreview.src = url
 })
+
 const fragment = new DocumentFragment()
 
 imagesAddButton.addEventListener('change', e =>{
@@ -30,7 +31,6 @@ function addPrewue (file) {
     const url = URL.createObjectURL(blob)
     return url  
 }
-
 
 function displayUsersPhotos(url) {
     const cloneElement = image.content.cloneNode(true);

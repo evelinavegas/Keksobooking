@@ -60,13 +60,6 @@ map.whenReady(() => {
     
 })
 
-// validation 
-// const submitBtn = document.querySelector('.ad-form__submit')
-
-// submitBtn.addEventListener('click', e=>{
-//     e.preventDefault()
-//     validationForm()
-// })
 const formData = document.querySelector('.ad-form')
 
 formData.addEventListener('submit', e => {

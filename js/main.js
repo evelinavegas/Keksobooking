@@ -2,7 +2,8 @@ import { displayCards } from "./cards-display.js";
 import { priseCorecting, selectedTime} from "./cards-filtering.js";
 import {  form,  mapFilters,  disabledForm, map } from "./create-map.js";
 import {validationForm} from "./form-validation.js";
-
+import { sendForm } from "./send-form.js";
+import { img } from "./add_photos.js";
 
 async function getCards(){
     try {
@@ -19,7 +20,7 @@ async function getCards(){
     }
 }
 const cardsArr = await getCards()
-
+console.log(cardsArr[0])
 displayCards(cardsArr)
 
 const housingType = document.querySelector('#type') 
@@ -60,9 +61,17 @@ map.whenReady(() => {
 })
 
 // validation 
-const submitBtn = document.querySelector('.ad-form__submit')
+// const submitBtn = document.querySelector('.ad-form__submit')
 
-submitBtn.addEventListener('click', e=>{
+// submitBtn.addEventListener('click', e=>{
+//     e.preventDefault()
+//     validationForm()
+// })
+const formData = document.querySelector('.ad-form')
+
+formData.addEventListener('submit', e => {
     e.preventDefault()
     validationForm()
+    form.reportValidity()
+    form.checkValidity() === true ? sendForm(e.target): 0
 })

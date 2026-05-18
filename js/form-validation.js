@@ -4,12 +4,14 @@ const capacity = document.querySelector('#capacity')
 const imgForm = document.querySelector('#images').accept="image/*"
 const priceForm = document.querySelector('#price') 
 const titleForm = document.querySelector('#title')
+let features =document.querySelectorAll('.feature__checkbox')
 titleForm.maxLength = '100'
+
+let featuresArr = []
 
 const PRICE_RANGE = {
     min: 1, max: 100000,
 }
-
 function priceValidation (){
     if(priceForm.value < PRICE_RANGE.min ){
         priceForm.setCustomValidity(`minimum price ${PRICE_RANGE.min}`)
@@ -48,7 +50,12 @@ function validationForm(){
     titleValidation()
     priceValidation()
 }
-
+function featuresAdd () {
+    features.forEach(e => {
+        e.checked ? featuresArr.push(e.value ): 0
+    });
+    return [...new Set(featuresArr)]
+}
 form.addEventListener('click', (e)=>{
     roomCount.setCustomValidity('')
     capacity.setCustomValidity('')
@@ -56,4 +63,4 @@ form.addEventListener('click', (e)=>{
     titleForm.setCustomValidity('')
 })
 
-export{validationForm}
+export{validationForm, featuresAdd}

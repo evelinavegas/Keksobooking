@@ -1,22 +1,39 @@
-// avatar: "img/avatars/user04.png"
-// offer: 
-//     address: "X: 35.67136 Y: 139.74631"
-//     checkin: "14:00"
-//     checkout: "12:00"
-//     description: "Підлога в хорошому стані, приємна на дотик"
-//     features: ['parking']
-//     guests: "8 guests"
-//     photos: (2) ['http://o0.github.io/assets/images/tokyo/hotel2.jpg', 'http://o0.github.io/assets/images/tokyo/hotel1.jpg']
-//     price: "9768 $"
-//     rooms: "4 rooms"
-//     title: "Затишна квартира в самому серці міста"
-//     type: "palace"
 
-function sendForm (target) {
+let objData =  {}
+
+function addFormData (target, featuresArr) {
     const formData = new FormData(target)
-    const data = Object.fromEntries(formData.entries())
-    console.log(data)
+    let avatar = formData.get('avatar')
+    let images = formData.getAll('images')
 
+    avatar = avatar.size > 0 ? avatar : ''
+    images = images[0].name !== ''? images : ''
+
+    const data = Object.fromEntries(formData.entries())
+    
+    let objForm = createObjForm(data, avatar, featuresArr, images)
 }
 
-export {sendForm}
+function createObjForm(data, avatar, featuresArr, images){
+    let offer = {}
+    let address = data.address.split(', ')
+
+    objData.avatar = avatar
+
+    offer.address = `X: ${address[0]} Y: ${address[1]}}`
+    offer.checkin = data.timein
+    offer.checkout = data.timeout
+    offer.description = data.description
+    offer.features = featuresArr
+    offer.capacity = `${data.capacity} guests`
+    offer.images = images
+    offer.price = `${data.price} $`
+    offer.rooms = `${data.rooms} $`
+    offer.title = data.title
+    offer.type = data.type
+
+    objData.offer = offer    
+    return objData
+}
+
+export {addFormData, objData }

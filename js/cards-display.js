@@ -37,7 +37,6 @@ const canvas = document.querySelector('#map-canvas')
 const fragment =new DocumentFragment()
 
 function displayCards (arr) {
-    // fragment.appendChild(start)
     arr.forEach(e=>{
         const offersObj = e.offer
         const cloneElement = card.content.cloneNode(true);
@@ -51,12 +50,12 @@ function displayCards (arr) {
         cloneElement.querySelector('.popup__text--time').textContent =`Заїзд після ${offersObj.checkin}, виїзд до ${offersObj.checkout}`
         featuresCreate(cloneElement.querySelectorAll('.popup__feature'), offersObj.features)
         cloneElement.querySelector('.popup__description').textContent =offersObj.description
-        addPhotos(cloneElement.querySelector('.popup__photos'), offersObj.photos)
+        
+        let photosArr = offersObj.photos
+        Array.isArray(photosArr) ? addPhotos(cloneElement.querySelector('.popup__photos'), photosArr) :0
 
         fragment.appendChild(cloneElement)
     })
-    // fragment.appendChild(end)
-
     // canvas.appendChild(fragment)
 }
 function typeCreate(data){
@@ -97,7 +96,7 @@ function featuresCreate(elements,arr ){
 function addPhotos(perents, arr){
     perents.innerHTML=''
     
-    arr.forEach(e=>{
+ arr.forEach(e=>{
         let img = document.createElement('img')
         img.classList='popup__photo'
         img.width='45'
@@ -105,6 +104,6 @@ function addPhotos(perents, arr){
         img.alt='Фотографія житла'
         img.src = e
         perents.appendChild(img)
-    })
+    }) 
 }
 export {displayCards}

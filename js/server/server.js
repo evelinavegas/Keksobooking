@@ -36,7 +36,7 @@ http.createServer(function (req, res) {
             }
         });
         return;
-    } else if(req.method === 'POST' && req.url === '/gram'){
+    } else if(req.method === 'POST' && req.url === '/newAdvert'){
         let body = ''
         req.on('data', chunk => {
             body += chunk.toString()

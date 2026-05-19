@@ -3,7 +3,8 @@ import { priseCorecting, selectedTime} from "./cards-filtering.js";
 import { form,  mapFilters,  disabledForm, map } from "./create-map.js";
 import { validationForm, featuresAdd} from "./form-validation.js";
 import { addFormData } from "./send-form.js";
-import { img } from "./add_photos.js";
+import { avatarUrl, imagesUrlsArr } from "./add_photos.js";
+import { sendForm } from "./server/send-form.js";
 
 async function getCards(){
     try {
@@ -66,5 +67,10 @@ formData.addEventListener('submit', e => {
     const featuresArr = featuresAdd()
     validationForm()
     form.reportValidity()
-    form.checkValidity() === true ? addFormData(e.target, featuresArr): 0
+    // form.checkValidity() === true ? addFormData(e.target, featuresArr): 0
+    if(form.checkValidity() === true) {
+        const objDataForm = addFormData(e.target, featuresArr,avatarUrl, imagesUrlsArr)
+        sendForm(objDataForm)
+        console.log(cardsArr )
+    }
 })

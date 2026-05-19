@@ -7,11 +7,13 @@ const image = document.querySelector('#form_photo')
 
 imagesAddButton.multiple = true
 
-let img= ''
+let avatarUrl= ''
+let imagesUrlsArr= []
 avatar.addEventListener('change', (e)=>{
     const file = e.target.files[0]
     let url = addPrewue(file)
     avatarPreview.src = url
+    avatarUrl = url
 })
 
 const fragment = new DocumentFragment()
@@ -21,6 +23,7 @@ imagesAddButton.addEventListener('change', e =>{
     for( let file of e.target.files){
         let url = addPrewue(file)
         displayUsersPhotos(url)
+        imagesUrlsArr.push(url)
     }
     imagesContainer.appendChild(fragment)
 })
@@ -38,4 +41,4 @@ function displayUsersPhotos(url) {
     fragment.appendChild(cloneElement)
 }
 
-export {img}
+export {avatarUrl, imagesUrlsArr}

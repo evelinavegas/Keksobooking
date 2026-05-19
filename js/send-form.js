@@ -1,4 +1,3 @@
-// import { sendForm } from "./server/send-form.js"
 let objData =  {}
 
 function addFormData (target, featuresArr,avatar, images) {
@@ -15,7 +14,7 @@ function createObjForm(data, avatar, featuresArr, images){
     let address = data.address.split(', ')
 
     objData.avatar = avatar
-    
+
     offer.address = `X: ${address[0]} Y: ${address[1]}}`
     offer.checkin = data.timein
     offer.checkout = data.timeout
